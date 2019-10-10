@@ -1,0 +1,231 @@
+/* Styles for the animated quote */
+
+.quote {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: bold;
+  height: 40em;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-shadow: 0 0 1em #fff;
+}
+
+.quote:after {
+  background: -webkit-linear-gradient(
+    top,
+    #efefef,
+    rgba(255, 238, 238, 0.4) 30%,
+    rgba(255, 238, 238, 0.4) 70%,
+    #efefef
+  );
+  background: linear-gradient(
+    to bottom,
+    #efefef,
+    rgba(255, 238, 238, 0.4) 30%,
+    rgba(255, 238, 238, 0.4) 70%,
+    #efefef
+  );
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.full-width {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+}
+
+.quote p {
+  bottom: 1em;
+  font-size: 2em;
+  max-width: 20em;
+  opacity: 0;
+  position: absolute;
+  -webkit-transform: translateY(2em) scale(1.4);
+  transform: translateY(2em) scale(1.4);
+  -webkit-transition: none;
+  transition: none;
+  width: 80%;
+  z-index: 1;
+}
+
+.quote .source {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.quote .background {
+  background: url(../imgs/discover/yogi_berra.jpg) no-repeat;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: -20%;
+  top: 0;
+  -webkit-transform: translateX(-10%);
+  transform: translateX(-10%);
+  -webkit-transition: none;
+  transition: none;
+  z-index: 0;
+  min-height: 40vh;
+}
+
+.quote.is-visible .background,
+.quote.is-visible p {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+}
+
+.quote.is-visible .background {
+  -webkit-transition: opacity 3s 0.4s ease-out,
+    -webkit-transform 2s 0.4s cubic-bezier(0, 1, 0.3, 1);
+  transition: opacity 3s 0.4s ease-out,
+    -webkit-transform 2s 0.4s cubic-bezier(0, 1, 0.3, 1);
+  transition: transform 2s 0.4s cubic-bezier(0, 1, 0.3, 1),
+    opacity 3s 0.4s ease-out;
+  transition: transform 2s 0.4s cubic-bezier(0, 1, 0.3, 1),
+    opacity 3s 0.4s ease-out,
+    -webkit-transform 2s 0.4s cubic-bezier(0, 1, 0.3, 1);
+}
+
+.quote.is-visible p {
+  -webkit-transition: opacity 4s ease-out,
+    -webkit-transform 2s cubic-bezier(0, 1, 0.2, 1.1);
+  transition: opacity 4s ease-out,
+    -webkit-transform 2s cubic-bezier(0, 1, 0.2, 1.1);
+  transition: transform 2s cubic-bezier(0, 1, 0.2, 1.1), opacity 4s ease-out;
+  transition: transform 2s cubic-bezier(0, 1, 0.2, 1.1), opacity 4s ease-out,
+    -webkit-transform 2s cubic-bezier(0, 1, 0.2, 1.1);
+}
+
+/* Header stuff */
+
+header {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s 0.25s ease-out;
+  transition: opacity 0.5s 0.25s ease-out;
+}
+
+header.is-visible {
+  opacity: 1;
+}
+
+.main-photo {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.heading {
+  -webkit-transform: translate(-50%, calc(-50% + 1em));
+  transform: translate(-50%, calc(-50% + 1em));
+}
+
+.is-visible .main-photo {
+  -webkit-transform: none;
+  transform: none;
+}
+
+.is-visible .heading {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.main-photo,
+.heading {
+  -webkit-transition: -webkit-transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1);
+  transition: -webkit-transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1);
+  transition: transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1);
+  transition: transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1),
+    -webkit-transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1);
+
+  will-change: transform;
+}
+
+/* Inline photos */
+
+.inline-photo {
+  border: 1em solid #fff;
+  border-bottom: 4em solid #fff;
+  border-radius: 0.25em;
+  box-shadow: 1em 1em 2em 0.25em rgba(0, 0, 0, 0.2);
+  margin: 2em auto;
+  max-width: 600px;
+  opacity: 0;
+  -webkit-transform: translateY(4em) rotateZ(-5deg);
+  transform: translateY(4em) rotateZ(-5deg);
+  -webkit-transition: opacity 0.3s 0.25s ease-out,
+    -webkit-transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1);
+  transition: opacity 0.3s 0.25s ease-out,
+    -webkit-transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1);
+  transition: transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1),
+    opacity 0.3s 0.25s ease-out;
+  transition: transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1),
+    opacity 0.3s 0.25s ease-out,
+    -webkit-transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1);
+  width: 90%;
+
+  will-change: transform, opacity;
+}
+
+.inline-photo.is-visible {
+  opacity: 1;
+  -webkit-transform: rotateZ(-2deg);
+  transform: rotateZ(-2deg);
+}
+
+/* NAV */
+
+#navigation {
+  height: 60px;
+  background: #3d2109;
+  border-bottom: 1px solid #fff;
+}
+
+.nav-menu {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+.nav-item {
+  padding: 0 5em;
+}
+
+.nav-item a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3em;
+}
+
+.nav-item a:hover {
+  color: #888;
+}
+
+.fixed-nav #navigation {
+  width: 100%;
+  position: fixed;
+  background: #3d2109;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
